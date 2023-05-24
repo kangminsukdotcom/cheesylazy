@@ -636,7 +636,6 @@ body:not(.gh-head-open) .gh-burger:hover .gh-burger-inner::after {
     margin-bottom: 1em;
     display: -webkit-box;
     overflow-y: hidden;
-    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     word-break: break-word;
 }
