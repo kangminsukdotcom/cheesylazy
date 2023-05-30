@@ -1,0 +1,33 @@
+{{!< default}}
+
+{{!-- Archive Page --}}
+<div class="container wrapper">
+  <h1 class="archive__title">{{t "Archive"}}</h1>
+  <div class="archive__excerpt">
+    {{#get "posts"}}
+      {{t "Browse the complete archive of {total} posts." total=pagination.total}}
+    {{/get}}
+  </div>
+  
+  <div class="content">
+    <div class="archive js-post-feed">
+      {{#foreach posts visibility="all"}}
+        <div class="archive-post-wrap post-year-{{date format="Y"}} js-post-card"> 
+          <div class="archive-post-label m-t m-b-sm fw-600">{{date format="YYYY"}}</div>
+          <article class="archive-post">
+            <time datetime="{{date published_at format="YYYY-MM-DD"}}"
+              class="text-acc-3">{{date published_at format="DD MMM YYYY"}}
+            </time>
+
+            <h2 class="archive-post__title fw-500 m-0 text-acc-2">
+              <a class="archive-post__link flex-1" href="{{url}}">{{title}}</a>
+            </h2>
+          </article>
+        </div>
+      {{/foreach}}
+    </div>
+
+    {{!-- Pagination --}}
+    {{pagination}}
+  </div>
+</div>
