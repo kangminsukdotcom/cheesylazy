@@ -1,0 +1,12 @@
+{{#get "posts" limit="all" order="published_at desc"}}
+  <article class="content-wrap">
+    {{#foreach posts visibility="all"}}
+      <a href="{{url}}" class="archive-post">
+        <time datetime="{{date published_at format="YYYY-MM-DD"}}" class="archive-post__date">
+          {{date published_at format="DD MMM YYYY"}}
+        </time>
+        <h2 class="archive-post__title">{{title}}</h2>
+      </a>
+    {{/foreach}}
+  </article>
+{{/get}}
