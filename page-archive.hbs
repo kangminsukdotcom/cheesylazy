@@ -4,11 +4,6 @@
 <div class="container wrapper">
   <h1 class="archive__title">{{t "Archive"}}</h1>
   <div class="archive__excerpt">
-    {{#get "posts"}}
-      {{t "Browse the complete archive of {total} posts." total=pagination.total}}
-    {{/get}}
-  </div>
-  
 {{#get "posts" limit="all" order="published_at desc"}}
   <article class="content-wrap">
     {{#foreach posts visibility="all"}}
@@ -18,3 +13,4 @@
     {{/foreach}}
   </article>
 {{/get}}
+  </div>
