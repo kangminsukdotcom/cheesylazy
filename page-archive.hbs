@@ -1,14 +1,10 @@
-{{!< default}}
-
-{{!-- Archive Page --}}
-  <h1 class="archive__title" style="background: #fecd35;">{{t "Archive"}}</h1>
 {{#get "posts" limit="all" order="published_at desc"}}
-  <article class="content-wrap" style="background: #fecd35;">
-    {{#foreach posts visibility="all"}}
-      <a href="{{url}}" class="archive-post">
-        <h2 class="archive-post__title" style="text-decoration:underline;">{{title}}</h2>
-      </a>
-    {{/foreach}}
-  </article>
+{{#foreach posts visibility="all"}}
+<article class="archive-post archive-post-date-{{date format="M"}}">
+    <p class="archive-post-label">{{date format="MMMM YYYY"}}</p>
+    <a class="archive-post-link" href="{{url}}">
+        <h2 class="archive-post-title">{{title}}</h2>
+    </a>
+</article>
+{{/foreach}}
 {{/get}}
-  </div>
