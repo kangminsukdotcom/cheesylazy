@@ -5,7 +5,8 @@
     <a class="archive-post-link" href="{{url}}">
         <h2 class="archive-post-title">{{title}}</h2>
     </a>
-<style>.archive-post-date-1 + .archive-post-date-1 .archive-post-label,
+<style>
+.archive-post-date-1 + .archive-post-date-1 .archive-post-label,
 .archive-post-date-2 + .archive-post-date-2 .archive-post-label,
 .archive-post-date-3 + .archive-post-date-3 .archive-post-label,
 .archive-post-date-4 + .archive-post-date-4 .archive-post-label,
@@ -18,7 +19,35 @@
 .archive-post-date-11 + .archive-post-date-11 .archive-post-label,
 .archive-post-date-12 + .archive-post-date-12 .archive-post-label {
     display: none;
-}</style>
+}
+.archive-post {
+    margin: 0 0 24px;
+}
+
+.archive-post:first-child .archive-post-label {
+    margin-top: 0;
+}
+
+.archive-post-label {
+    color: var(--color-midgrey);
+    margin: 24px 0 16px;
+}
+
+.archive-post-link {
+    text-decoration: none !important;
+    color: var(--color-darkgrey) !important;
+}
+
+.archive-post-link:hover {
+    color: var(--ghost-accent-color) !important;
+}
+
+.archive-post-title {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.4;
+}
+</style>
 </article>
 {{/foreach}}
 {{/get}}
