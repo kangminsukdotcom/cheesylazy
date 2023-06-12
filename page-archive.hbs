@@ -3,7 +3,7 @@
 {{!-- Archive Page --}}
   <h1 class="archive__title">{{t "Archive"}}</h1>
 {{#get "posts" limit="all" order="published_at desc"}}
-  <article class="content-wrap">
+  <article class="content-wrap" style="background: #fecd35;">
     {{#foreach posts visibility="all"}}
       <a href="{{url}}" class="archive-post">
         <h2 class="archive-post__title">{{title}}</h2>
