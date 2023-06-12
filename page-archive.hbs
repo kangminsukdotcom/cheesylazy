@@ -1,9 +1,7 @@
 {{!< default}}
 
 {{!-- Archive Page --}}
-<div class="container wrapper">
   <h1 class="archive__title">{{t "Archive"}}</h1>
-  <div class="archive__excerpt">
 {{#get "posts" limit="all" order="published_at desc"}}
   <article class="content-wrap">
     {{#foreach posts visibility="all"}}
