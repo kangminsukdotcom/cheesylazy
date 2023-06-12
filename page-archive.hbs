@@ -1,5 +1,3 @@
-{{!< default}}
-
 {{#get "posts" limit="all" order="published_at desc"}}
 {{#foreach posts visibility="all"}}
 <article class="archive-post archive-post-date-{{date format="M"}}">
@@ -7,6 +5,20 @@
     <a class="archive-post-link" href="{{url}}">
         <h2 class="archive-post-title">{{title}}</h2>
     </a>
+<style>.archive-post-date-1 + .archive-post-date-1 .archive-post-label,
+.archive-post-date-2 + .archive-post-date-2 .archive-post-label,
+.archive-post-date-3 + .archive-post-date-3 .archive-post-label,
+.archive-post-date-4 + .archive-post-date-4 .archive-post-label,
+.archive-post-date-5 + .archive-post-date-5 .archive-post-label,
+.archive-post-date-6 + .archive-post-date-6 .archive-post-label,
+.archive-post-date-7 + .archive-post-date-7 .archive-post-label,
+.archive-post-date-8 + .archive-post-date-8 .archive-post-label,
+.archive-post-date-9 + .archive-post-date-9 .archive-post-label,
+.archive-post-date-10 + .archive-post-date-10 .archive-post-label,
+.archive-post-date-11 + .archive-post-date-11 .archive-post-label,
+.archive-post-date-12 + .archive-post-date-12 .archive-post-label {
+    display: none;
+}</style>
 </article>
 {{/foreach}}
 {{/get}}
