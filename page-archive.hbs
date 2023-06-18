@@ -2,7 +2,7 @@
 {{#get "posts" limit="all" order="published_at asce"}}
 {{#foreach posts visibility="all"}}
 <article class="archive-post archive-post-date-{{date format="M"}}">
-    <p class="archive-post-label">{{date format="YYYY MMMM"}}</p>
+    <p class="archive-post-label">{{date format="YYYY-MM"}}</p>
     <a class="archive-post-link" href="{{url}}">
         <h2 class="archive-post-title">{{title}}</h2>
     </a>
