@@ -3,9 +3,6 @@
 {{#post}}
 {{!-- Everything inside the #post block pulls data from the page --}}
 
-<main id="site-main" class="site-main">
-    <article class="article {{post_class}}">
-
         <header class="article-header gh-canvas">
             {{#if feature_image}}
             <figure class="article-image">
@@ -29,13 +26,8 @@
 
         <section class="gh-content gh-canvas">
 
-            <h1 class="article-title">{{title}}</h1>
-
             {{content}}
 
         </section>
-
-    </article>
-</main>
 
 {{/post}}
