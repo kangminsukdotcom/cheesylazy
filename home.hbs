@@ -1,0 +1,13 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- Main --}}
+<main id="main">
+        {{#page}}
+            <div>
+                <h2>{{title}}</h2>
+                {{content}}
+            </div>
+        {{/page}}
+</main>
