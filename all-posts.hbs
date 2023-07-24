@@ -1,20 +1,30 @@
 {{!< default}}
 
 {{#post}}
+{{!-- Everything inside the #post block pulls data from the page --}}
 
-<main id="site-main" class="site-main outer" role="main">
-  <div class="inner">
-    <header class="post-full-header">
-      <h1 class="post-full-title">{{title}}</h1>
+<main id="site-main" class="site-main">
+<article class="article {{post_class}}">
+
+    <header class="article-header gh-canvas">
+
+        <h1 class="article-title">{{title}}</h1>
+
+        {{#get 'tags' limit='all' include='count.posts' order='count.posts desc'}}
+            {{#foreach tags}}
+                <a href='{{ url }}'>
+                <h2>{{ name }} <small>({{ count.posts }})</small></h2>
+                </a>
+            {{/foreach}}
+        {{/get}}
+
     </header>
-    {{#get 'tags' limit='all' include='count.posts' order='count.posts desc'}}
-    {{#foreach tags}}
-        <a href='{{ url }}'>
-        <h2>{{ name }} <small>({{ count.posts }})</small></h2>
-        </a>
-    {{/foreach}}
-    {{/get}}
-  </div>
+
+    <section class="gh-content gh-canvas">
+        {{content}}
+    </section>
+
+</article>
 </main>
 
 {{/post}}
