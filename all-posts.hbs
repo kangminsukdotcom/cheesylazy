@@ -1,31 +1,48 @@
 {{!< default}}
 
-{{!-- Archive Page --}}
-<div class="container wrapper">
-  <h1 class="archive__title">{{t "Archive"}}</h1>
-  <div class="archive__excerpt">
-    {{#get "posts"}}
-      {{t "Browse the complete archive of {total} posts." total=pagination.total}}
-    {{/get}}
-  </div>
-  
-  <div class="content">
-    <div class="archive js-post-feed">
-      {{#foreach posts visibility="all"}}
-        <div class="archive-post-wrap post-year-{{date format="Y"}} js-post-card"> 
-          <div class="archive-post-label m-t m-b-sm fw-600">{{date format="YYYY"}}</div>
-          <article class="archive-post">
-            <time datetime="{{date published_at format="YYYY-MM-DD"}}"
-              class="text-acc-3">{{date published_at format="YYYY-MM-DD"}}
-            </time>
-
-            <h2 class="archive-post__title fw-500 m-0 text-acc-2">
-              <a class="archive-post__link flex-1" href="{{url}}">{{title}}</a>
-            </h2>
-          </article>
-        </div>
-      {{/foreach}}
-    </div>
-s
-  </div>
-</div>
+<h1 class="archive-name">🗄️Archive</h1>
+{{#get "posts" limit="all" order="published_at desc"}}
+{{#foreach posts visibility="all"}}
+<article class="archive-post archive-post-date-{{date format="M"}}">
+    <p class="archive-post-label">{{date format="YYYY-MM"}}</p>
+    <a class="archive-post-link" href="{{url}}">
+        <h2 class="archive-post-title">{{title}}</h2>
+    </a>
+<style>
+.archive-post-date-1 + .archive-post-date-1 .archive-post-label,
+.archive-post-date-2 + .archive-post-date-2 .archive-post-label,
+.archive-post-date-3 + .archive-post-date-3 .archive-post-label,
+.archive-post-date-4 + .archive-post-date-4 .archive-post-label,
+.archive-post-date-5 + .archive-post-date-5 .archive-post-label,
+.archive-post-date-6 + .archive-post-date-6 .archive-post-label,
+.archive-post-date-7 + .archive-post-date-7 .archive-post-label,
+.archive-post-date-8 + .archive-post-date-8 .archive-post-label,
+.archive-post-date-9 + .archive-post-date-9 .archive-post-label,
+.archive-post-date-10 + .archive-post-date-10 .archive-post-label,
+.archive-post-date-11 + .archive-post-date-11 .archive-post-label,
+.archive-post-date-12 + .archive-post-date-12 .archive-post-label {
+    display: none;
+}
+.archive-name
+{font-family: monospace;
+}
+.archive-post-label{
+  font-family: monospace;
+  font-size: larger;
+  padding-top:1.5rem;
+}
+.archive-post-title{
+  font-family: 'Verdana', sans-serif;
+  font-size: 1.3rem;
+}
+body {
+  background: #f6eee3;
+}
+a:hover {
+    text-decoration: none;
+    color: #f7ca18;
+}
+</style>
+</article>
+{{/foreach}}
+{{/get}}
