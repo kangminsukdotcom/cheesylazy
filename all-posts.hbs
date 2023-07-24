@@ -4,12 +4,8 @@
     <div class="inner posts">
 
         <div class="post-feed{{#match @custom.feed_layout "List"}} list{{/match}}">
-            {{#foreach posts}}
-
-                {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-                {{> "post-card"}}
-
-            {{/foreach}}
+            {{#get "posts" limit="all" order="published_at asce"}}
+            {{#foreach posts visibility="all"}}
         </div>
 
     </div>
