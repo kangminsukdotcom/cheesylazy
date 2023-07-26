@@ -1,44 +1,46 @@
 {{!< default}}
-{{!-- The tag above means: insert everything in this file
-into the {body} of the default.hbs template --}}
-
-{{#match @custom.publication_cover_style "!=" "None"}}
-    <div class="site-header-content{{#match @custom.publication_cover_style "Large"}} large{{/match}}">
-        {{#if @site.cover_image}}
-            {{!-- This is a responsive image, it loads different sizes depending on device
-            https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
-            <img class="site-header-cover"
-                srcset="{{img_url @site.cover_image size="s"}} 300w,
-                        {{img_url @site.cover_image size="m"}} 600w,
-                        {{img_url @site.cover_image size="l"}} 1000w,
-                        {{img_url @site.cover_image size="xl"}} 2000w"
-                sizes="100vw"
-                src="{{img_url @site.cover_image size="xl"}}"
-                alt=""
-            />
-        {{/if}}
-        <h1 class="site-title">
-            {{#if @site.logo}}
-                <img class="site-logo" src="{{img_url @site.logo size="m"}}" alt="{{@site.title}}" />
-            {{else}}
-                {{@site.title}}
-            {{/if}}
-        </h1>
-    </div>
-{{/match}}
-
-{{!-- The main content area --}}
-<main id="site-main" class="site-main outer">
-    <div class="inner posts">
-
-        <div class="post-feed{{#match @custom.feed_layout "List"}} list{{/match}}">
-            {{#foreach posts}}
-
-                {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-                {{> "post-card"}}
-
-            {{/foreach}}
-        </div>
-
-    </div>
-</main>
+{{#get "posts" limit="all" order="published_at desc"}}
+{{#foreach posts visibility="all"}}
+<article class="archive-post archive-post-date-{{date format="M"}}">
+    <p class="archive-post-label">{{date format="YYYY-MM"}}</p>
+    <a class="archive-post-link" href="{{url}}">
+        <h2 class="archive-post-title">{{title}}</h2>
+    </a>
+<style>
+.archive-post-date-1 + .archive-post-date-1 .archive-post-label,
+.archive-post-date-2 + .archive-post-date-2 .archive-post-label,
+.archive-post-date-3 + .archive-post-date-3 .archive-post-label,
+.archive-post-date-4 + .archive-post-date-4 .archive-post-label,
+.archive-post-date-5 + .archive-post-date-5 .archive-post-label,
+.archive-post-date-6 + .archive-post-date-6 .archive-post-label,
+.archive-post-date-7 + .archive-post-date-7 .archive-post-label,
+.archive-post-date-8 + .archive-post-date-8 .archive-post-label,
+.archive-post-date-9 + .archive-post-date-9 .archive-post-label,
+.archive-post-date-10 + .archive-post-date-10 .archive-post-label,
+.archive-post-date-11 + .archive-post-date-11 .archive-post-label,
+.archive-post-date-12 + .archive-post-date-12 .archive-post-label {
+    display: none;
+}
+.archive-name
+{font-family: monospace;
+}
+.archive-post-label{
+  font-family: monospace;
+  font-size: larger;
+  padding-top:1.5rem;
+}
+.archive-post-title{
+  font-family: 'Verdana', sans-serif;
+  font-size: 1.3rem;
+}
+body {
+  background: #f6eee3;
+}
+a:hover {
+    text-decoration: none;
+    color: #f7ca18;
+}
+</style>
+</article>
+{{/foreach}}
+{{/get}}
