@@ -176,6 +176,10 @@ production stylesheet in assets/built/screen.css
     line-height: 1.3em;
     color: #fff;
     background: #f5e48d;
+    position: -webkit-sticky; /* Older Safari browsers */
+    position: sticky; /* Most other modern browsers including Safari */
+    top: 0;
+    z-index: 4000;
 }
 
 .gh-head a {
