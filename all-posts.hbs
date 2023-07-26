@@ -1,4 +1,4 @@
-<a href="https://cheesylazy.com/"><h1 class="archive-name"><img src="https://cheesylazy.com/content/images/2022/03/logo3.png" alt="CHEESYLAZY 치지레이지"></h1></a>
+<a href="https://cheesylazy.com/"><img class="archive-name"><img src="https://cheesylazy.com/content/images/2022/03/logo3.png" alt="CHEESYLAZY 치지레이지"></img></a>
 {{#get "posts" limit="all" order="published_at desc"}}
 {{#foreach posts visibility="all"}}
 <article class="archive-post archive-post-date-{{date format="M"}}">
@@ -21,8 +21,10 @@
 .archive-post-date-12 + .archive-post-date-12 .archive-post-label {
     display: none;
 }
-.archive-name
-{font-family: monospace;
+.archive-name{
+    font-family: monospace;
+    max-height: 26px;
+
 }
 .archive-post-label{
   font-family: monospace;
