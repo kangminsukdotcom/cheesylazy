@@ -1,4 +1,4 @@
-<h1 class="archive-name">🗄️Archive</h1>
+<a href="https://cheesylazy.com/"><h1 class="archive-name">CHEESYLAZY</h1></a>
 {{#get "posts" limit="all" order="published_at asce"}}
 {{#foreach posts visibility="all"}}
 <article class="archive-post archive-post-date-{{date format="M"}}">
@@ -39,6 +39,9 @@ body {
 a:hover {
     text-decoration: none;
     color: #f7ca18;
+}
+a {
+    display: block;
 }
 </style>
 </article>
