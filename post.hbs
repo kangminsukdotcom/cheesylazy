@@ -114,13 +114,17 @@ into the {body} tag of the default.hbs template --}}
         This query gets the latest 3 posts on the site, but adds a filter to
         exclude the post we're currently on from being included. --}}
 
-        {{#get "posts" filter="id:-{{id}}" include="authors" filter="id:-{{id}}+authors:{{primary_author.slug}}" limit="3" as |more_posts|}}
-            {{#if more_posts}}
+ {{#get "posts" filter="id:-{{id}}+authors:{{primary_author.slug}}" limit="3" as |more_posts|}}
+    {{#if more_posts}}
+        <aside class="read-more-wrap outer">
+            <div class="read-more inner">
                 {{#foreach more_posts}}
-                    {{> "post-card"}}
-                {{/foreach}}
-            {{/if}}
-        {{/get}}
+                        {{> "post-card"}}
+                    {{/foreach}}
+                </div>
+            </aside>
+        {{/if}}
+    {{/get}}
 
     </div>
 </aside>
