@@ -20,38 +20,42 @@ which templates loop over to generate a list of posts. --}}
     </a>
     {{/if}}
 
-<div class="post-card-content">
+    <div class="post-card-content">
 
         <a class="post-card-content-link" href="{{url}}">
             <header class="post-card-header">
-                <div class="post-card-tags">
+                {{#if primary_tag}}
                     {{#primary_tag}}
-                        <span class="post-card-primary-tag">{{name}}</span>
+                    <div class="post-card-primary-tag">{{name}}</div>
                     {{/primary_tag}}
-                    {{#if featured}}
-                        <span class="post-card-featured">{{> "icons/fire"}} Featured</span>
-                    {{/if}}
-                </div>
-                <h2 class="post-card-title">
-                    {{#unless access}}
-                    {{^has visibility="public"}}
-                        {{#unless feature_image}}
-                            {{> "icons/lock"}}
-                        {{/unless}}
-                    {{/has}}
-                    {{/unless}}
-                    {{title}}
-                </h2>
+                {{/if}}
+                <h2 class="post-card-title">{{title}}</h2>
             </header>
-            {{#if excerpt}}
-                <div class="post-card-excerpt">{{excerpt}}</div>
-            {{/if}}
+            <div class="post-card-excerpt">
+                <p>{{excerpt}}</p>
+            </div>
         </a>
 
         <footer class="post-card-meta">
-            <time class="post-card-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date}}</time>
+            <ul class="author-list">
+                {{#foreach authors}}
+                <li class="author-list-item">
+                    {{#if profile_image}}
+                    <a href="{{url}}" class="static-avatar">
+                        <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}" />
+                    </a>
+                    {{else}}
+                    <a href="{{url}}" class="static-avatar author-profile-image">{{> "icons/avatar"}}</a>
+                    {{/if}}
+                </li>
+                {{/foreach}}
+            </ul>
+            <div class="post-card-byline-content">
+                <span>{{#has author="count:>2"}}Multiple authors{{else}}{{authors}}{{/has}}</span>
+                <span class="post-card-byline-date"><time datetime="{{date format="YYYY-MM-DD"}}">{{date}}</time>
+            </div>
         </footer>
 
-    </div>
+    </div>{{!--/.post-card-content--}}
 
 </article>
