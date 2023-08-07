@@ -24,9 +24,9 @@ xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0">
         </itunes:owner>
         <itunes:explicit>clean</itunes:explicit>
         <itunes:image href="{{img_url @site.icon absolute="true"}}"/>
-        <itunes:category text="Technology"></itunes:category>
+        <itunes:category text="Careers"></itunes:category>
 
-        {{#get "posts" filter="tag:podcast" include="tags,authors" as |episode|}}
+        {{#get "posts" filter="tag:Podcast" include="tags,authors" as |episode|}}
             {{#foreach episode}}
             <item>
                 <title>{{title}}</title>
