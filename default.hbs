@@ -21,7 +21,7 @@
     {{!-- Theme assets - use the {asset} helper to reference styles & scripts,
     this will take care of caching and cache-busting automatically --}}
     <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
-
+    <link rel="stylesheet" type="text/css" href="{{asset "ghost-dropdown.css"}}" />
     {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings,
     it should always be the last tag before the closing head tag --}}
     {{ghost_head}}
@@ -81,7 +81,6 @@
             <nav class="site-footer-nav">
                 {{navigation type="secondary"}}
             </nav>
-            <div><a href="https://toss.me/cheesylazy" target="_blank" rel="noopener">후원하기</a></div>
         </div>
     </footer>
 
@@ -96,6 +95,7 @@
     crossorigin="anonymous">
 </script>
 <script src="{{asset "built/casper.js"}}"></script>
+<script src="{{asset "ghost-dropdown.js"}}"></script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger
