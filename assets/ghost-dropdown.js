@@ -275,7 +275,7 @@
 
     $(document).ready(function () {
         ghost_dropdown({
-            targetElement: "nav.ul li",
+            targetElement: "ul li",
             hasChildrenClasses: "menu-item-has-children",
             hasChildrenIcon: "<svg width='19' height='10' viewBox='0 0 19 10' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M1.74805 1.52002L9.54883 9.00002L17.3496 1.52002' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>",
             hasChildDetectText: "[has_child]",
