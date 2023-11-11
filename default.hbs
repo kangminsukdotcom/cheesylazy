@@ -104,6 +104,39 @@ $(document).ready(function () {
     $(".gh-content").fitVids();
 });
 </script>
+<script>
+var dropDown_list = [],
+latest_navigation_item,
+// IMPORTANT: For themes other than Casper, change the selector just below to select your themes Primary Navigation links
+nav_list = document.querySelectorAll('.gh-head-menu li');
+var newMenuList = [];
+var menuTree = {};
+nav_list.forEach( (item, index) => {
+if(item.childNodes[0].innerText.startsWith('-')) {
+if(menuTree[newMenuList.length - 1]) {
+menuTree[newMenuList.length - 1].push(item);
+} else {
+menuTree[newMenuList.length - 1] = [item];
+}
+} else {
+newMenuList.push(item);
+}
+});
+nav_list = newMenuList.map((item, index) => {
+if(menuTree[index]) {
+let dropdown = document.createElement('ul');
+dropdown.className = 'isDropDown';
+menuTree[index].forEach(child => {
+dropDown_item_text = child.childNodes[0].innerText;
+child.childNodes[0].innerText = dropDown_item_text.replace('- ', '');
+dropdown.appendChild(child);
+});
+item.className += '--hasDropDown';
+item.appendChild(dropdown);
+}
+return item;
+});
+</script>
 {{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}
 {{ghost_foot}}
 
